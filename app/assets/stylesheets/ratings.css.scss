@@ -14,24 +14,29 @@
   position: relative;
 }
 
-.speech-bubble:after, .speech-bubble:before {
+.speech-bubble:after {
   content: "";
   display: block;
   position: absolute;
-  top: 10px;
-  left: -10px;
+  bottom: -10px;
+  left: 18px;
   border-color: transparent #fff;
   border-style: solid;
-  border-width: 10px 10px 10px 0;
+  border-width: 10px 10px 0;
   height: 0;
   width: 0;
+  z-index: 2;
 }
 
 .speech-bubble:before {
-  border-color: transparent #ededed;
-  top: 9px;
-  left: -11px;
-  border-width: 11px 11px 11px 0;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 1px;
+  background: #fff;
+  bottom: -1px;
+  left: 19px;
 }
 
 .speech-bubble > :last-child {

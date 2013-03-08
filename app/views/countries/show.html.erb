@@ -1,9 +1,9 @@
 <ul class="breadcrumb">
-  <li><%= link_to 'Countries', root_path %> <span class="divider">/</span></li>
+  <li><%= link_to t('countries.title'), root_path %> <span class="divider">/</span></li>
   <li class="active"><%= @country.name %></li>
 </ul>
 
-<h3>ISPs of <%= @country.name %></h3>
+<h3><%= t('countries.isps_of', country: @country.name) %></h3>
 
 <div class="btn-toolbar">
   <div class="btn-group">
@@ -15,8 +15,13 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>ISP</th>
-      <th>Overall score</th>
+      <th><%= t('providers.name') %></th>
+      <th><%= t('providers.overall') %></th>
+      <th><%= t('providers.privacy') %></th>
+      <th><%= t('providers.stability') %></th>
+      <th><%= t('providers.price_value') %></th>
+      <th><%= t('providers.support') %></th>
+      <th><%= t('providers.num_of_ratings') %></th>
     </tr>
   </thead>
 
@@ -25,6 +30,11 @@
       <tr>
         <td><%= link_to provider.name, provider %></td>
         <td><%= "%.1f" % (provider.overall || 0) %></td>
+        <td><%= "%.1f" % (provider.privacy || 0) %> out of 10</td>
+        <td><%= "%.1f" % (provider.stability || 0) %> out of 10</td>
+        <td><%= "%.1f" % (provider.price_value || 0) %> out of 10</td>
+        <td><%= "%.1f" % (provider.support || 0) %> out of 10</td>
+        <td><%= provider.ratings.count %></td>
       </tr>
     <% end %>
   </tbody>
