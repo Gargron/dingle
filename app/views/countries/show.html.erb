@@ -30,10 +30,10 @@
       <tr>
         <td><%= link_to provider.name, provider %></td>
         <td><%= "%.1f" % (provider.overall || 0) %></td>
-        <td><%= "%.1f" % (provider.privacy || 0) %> out of 10</td>
-        <td><%= "%.1f" % (provider.stability || 0) %> out of 10</td>
-        <td><%= "%.1f" % (provider.price_value || 0) %> out of 10</td>
-        <td><%= "%.1f" % (provider.support || 0) %> out of 10</td>
+        <td><%= "%.1f" % (provider.privacy || 0) %></td>
+        <td><%= "%.1f" % (provider.stability || 0) %></td>
+        <td><%= "%.1f" % (provider.price_value || 0) %></td>
+        <td><%= "%.1f" % (provider.support || 0) %></td>
         <td><%= provider.ratings.count %></td>
       </tr>
     <% end %>

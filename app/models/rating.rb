@@ -28,6 +28,6 @@ class Rating < ActiveRecord::Base
   end
 
   def calculate_overall
-    self.overall = 0.9 * self.privacy + 1.0 * self.stability + 0.5 * self.support + 0.7 * self.price_value
+    self.overall = ((0.9 * self.privacy + 1.0 * self.stability + 0.5 * self.support + 0.7 * self.price_value) / 31) * 10
   end
 end

@@ -20,7 +20,7 @@ class Provider < ActiveRecord::Base
 
   def generate_sorting_score
     n    = self.ratings.count
-    pos  = self.ratings.where("overall > 25").count
+    pos  = self.ratings.where("overall > 6").count
     conf = 0.95
 
     if n == 0
