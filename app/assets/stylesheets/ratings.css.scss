@@ -1,3 +1,39 @@
 // Place all the styles related to the ratings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.speech-bubble {
+  background: #fff;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 20px;
+  min-height: 20px;
+  position: relative;
+}
+
+.speech-bubble:after, .speech-bubble:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10px;
+  left: -10px;
+  border-color: transparent #fff;
+  border-style: solid;
+  border-width: 10px 10px 10px 0;
+  height: 0;
+  width: 0;
+}
+
+.speech-bubble:before {
+  border-color: transparent #ededed;
+  top: 9px;
+  left: -11px;
+  border-width: 11px 11px 11px 0;
+}
+
+.speech-bubble > :last-child {
+  margin-bottom: 0;
+}

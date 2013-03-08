@@ -4,7 +4,7 @@
   <li class="active"><%= @provider.name %></li>
 </ul>
 
-<h3>ISP: <%= @provider.name %></h3>
+<h3 style="margin-bottom: 18px">ISP: <%= @provider.name %></h3>
 
 <table class="table table-bordered">
   <thead>
@@ -28,55 +28,79 @@
   </tbody>
 </table>
 
+<hr />
+
 <% if @provider.ratings.count > 1 %>
   <div class="row">
     <div class="span6">
       <h4 style="margin-bottom: 18px">Best review</h4>
-      <pre><%= @provider.ratings.best.first.inspect %></pre>
+
+      <div class="speech-bubble">
+        <%= markdown(@provider.ratings.best.first.review.content) %>
+      </div>
+
+      <p>By <strong><%= @provider.ratings.best.first.user.name %></strong> &bull; <%= @provider.ratings.best.first.created_at %></p>
     </div>
 
     <div class="span6">
       <h4 style="margin-bottom: 18px">Worst review</h4>
-      <pre><%= @provider.ratings.worst.first.inspect %></pre>
+
+      <div class="speech-bubble">
+        <%= markdown(@provider.ratings.worst.first.review.content) %>
+      </div>
+
+      <p>By <strong><%= @provider.ratings.worst.first.user.name %></strong> &bull; <%= @provider.ratings.worst.first.created_at %></p>
     </div>
   </div>
 
   <hr />
 <% end %>
 
-<h4 style="margin-bottom: 18px">Reviews and ratings</h4>
-
 <ul class="unstyled">
   <% @provider.ratings.includes(:review, :user).each do |rating| %>
     <li>
       <div class="row">
         <div class="span4">
-          <dl class="dl-horizontal">
-            <dt>Privacy</dt>
-            <dd><% 1.upto(rating.privacy) do |x| %><i class="icon-star"></i><% end %></dd>
+          <table class="table table-bordered table-striped">
+            <col width="10%" />
 
-            <dt>Stability</dt>
-            <dd><% 1.upto(rating.stability) do |x| %><i class="icon-star"></i><% end %></dd>
+            <tbody>
+              <tr>
+                <th>Privacy</th>
+                <td><% 1.upto(rating.privacy) do |x| %><i class="icon-star"></i><% end %></td>
+              </td>
 
-            <dt>Price-value</dt>
-            <dd><% 1.upto(rating.price_value) do |x| %><i class="icon-star"></i><% end %></dd>
+              <tr>
+                <th>Stability</th>
+                <td><% 1.upto(rating.stability) do |x| %><i class="icon-star"></i><% end %></td>
+              </td>
 
-            <dt>Support</dt>
-            <dd><% 1.upto(rating.support) do |x| %><i class="icon-star"></i><% end %></dd>
-          </dl>
+              <tr>
+                <th>Price-value</th>
+                <td><% 1.upto(rating.price_value) do |x| %><i class="icon-star"></i><% end %></td>
+              </td>
+
+              <tr>
+                <th>Support</th>
+                <td><% 1.upto(rating.support) do |x| %><i class="icon-star"></i><% end %></td>
+              </td>
+            </tbody>
+          </table>
         </div>
 
         <div class="span8">
           <div class="speech-bubble">
-            <p><%= rating.review.content %></p>
+            <%= markdown(rating.review.content) %>
           </div>
 
-          <p>By <strong><%= rating.user.name %></strong></p>
+          <p>By <strong><%= rating.user.name %></strong> &bull; <%= rating.created_at %></p>
         </div>
       </div>
     </li>
   <% end %>
 </ul>
+
+<hr />
 
 <%= form_for @rating do |f| %>
   <legend>Submit your own rating</legend>
