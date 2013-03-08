@@ -93,7 +93,16 @@
             <%= markdown(rating.review.content) %>
           </div>
 
-          <p><%= t('ratings.by', name: rating.user.name) %> &bull; <%= rating.created_at %></p>
+          <p>
+            <%= raw t('ratings.by', name: rating.user.name) %>
+            &bull; <%= rating.created_at %>
+            &bull; <%= rating.kudos.count %> people agree
+            <% if not (not current_user.new_record? && rating.kudos.where_user_id(current_user.id).count > 0) %>
+              &bull; <%= link_to t('ratings.kudos'), kudos_path(Kudo.new, :rating_id => rating.id), :method => :post %>
+            <% else %>
+              &bull; You appreciate this
+            <% end %>
+          </p>
         </div>
       </div>
     </li>

@@ -3,10 +3,10 @@
 
 en:
   welcome:
-    paragraph: "Hello, world! This is Dingle. I don't know why I called it that, but it's a rating and reviews resource for Internet Service Providers (ISPs)."
+    paragraph: "Hello, world! This is <strong>Dingle</strong>. I don't know why I called it that, but it's a <strong>rating and reviews resource for Internet Service Providers</strong> (ISPs)."
   countries:
     title: 'Countries'
-    isps_of: ! 'ISPs of %{country}'
+    isps_of: 'ISPs of %{country}'
   providers:
     name: 'ISP'
     overall: 'Overall score'
@@ -18,8 +18,9 @@ en:
   ratings:
     best: 'Best review'
     worst: 'Worst review'
-    by: ! 'By %{name}'
+    by: 'By %{name}'
     submit_yours: 'Submit your own rating'
+    kudos: 'Give kudos'
     review: 'Review'
     form:
       privacy: 'Privacy out of 10'

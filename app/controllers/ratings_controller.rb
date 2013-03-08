@@ -24,4 +24,8 @@ class RatingsController < ApplicationController
       render :template => 'providers/show'
   	end
   end
+
+  def show
+    render :nothing
+  end
 end

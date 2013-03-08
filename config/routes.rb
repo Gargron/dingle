@@ -1,4 +1,8 @@
 Dingle::Application.routes.draw do
+  get "ratings/show"
+
+  get "kudos/create"
+
   get "providers/show"
 
   get "countries/show"
@@ -65,5 +69,6 @@ Dingle::Application.routes.draw do
   root :to => 'home#index'
   resources :countries, :only => :show
   resources :providers, :only => :show
-  resources :ratings, :only => :create
+  resources :ratings, :only => [:create, :show]
+  resources :kudos, :only => :create
 end
