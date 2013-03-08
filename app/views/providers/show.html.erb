@@ -1,0 +1,153 @@
+<ul class="breadcrumb">
+  <li><%= link_to 'Countries', root_path %> <span class="divider">/</span></li>
+  <li><%= link_to @provider.country.name, country_path(@provider.country) %> <span class="divider">/</span></li>
+  <li class="active"><%= @provider.name %></li>
+</ul>
+
+<h3>ISP: <%= @provider.name %></h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Overall score</th>
+      <th>Privacy score</th>
+      <th>Stability score</th>
+      <th>Price-value score</th>
+      <th>Support score</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td><%= "%.1f" % (@provider.overall || 0) %> out of 31</td>
+      <td><%= "%.1f" % (@provider.privacy || 0) %> out of 10</td>
+      <td><%= "%.1f" % (@provider.stability || 0) %> out of 10</td>
+      <td><%= "%.1f" % (@provider.price_value || 0) %> out of 10</td>
+      <td><%= "%.1f" % (@provider.support || 0) %> out of 10</td>
+    </tr>
+  </tbody>
+</table>
+
+<% if @provider.ratings.count > 1 %>
+  <div class="row">
+    <div class="span6">
+      <h4 style="margin-bottom: 18px">Best review</h4>
+      <pre><%= @provider.ratings.best.first.inspect %></pre>
+    </div>
+
+    <div class="span6">
+      <h4 style="margin-bottom: 18px">Worst review</h4>
+      <pre><%= @provider.ratings.worst.first.inspect %></pre>
+    </div>
+  </div>
+
+  <hr />
+<% end %>
+
+<h4 style="margin-bottom: 18px">Reviews and ratings</h4>
+
+<ul class="unstyled">
+  <% @provider.ratings.includes(:review, :user).each do |rating| %>
+    <li>
+      <div class="row">
+        <div class="span4">
+          <dl class="dl-horizontal">
+            <dt>Privacy</dt>
+            <dd><% 1.upto(rating.privacy) do |x| %><i class="icon-star"></i><% end %></dd>
+
+            <dt>Stability</dt>
+            <dd><% 1.upto(rating.stability) do |x| %><i class="icon-star"></i><% end %></dd>
+
+            <dt>Price-value</dt>
+            <dd><% 1.upto(rating.price_value) do |x| %><i class="icon-star"></i><% end %></dd>
+
+            <dt>Support</dt>
+            <dd><% 1.upto(rating.support) do |x| %><i class="icon-star"></i><% end %></dd>
+          </dl>
+        </div>
+
+        <div class="span8">
+          <div class="speech-bubble">
+            <p><%= rating.review.content %></p>
+          </div>
+
+          <p>By <strong><%= rating.user.name %></strong></p>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+<%= form_for @rating do |f| %>
+  <legend>Submit your own rating</legend>
+
+  <%= f.hidden_field :provider_id %>
+  
+  <% @rating.errors.each do |attr, err| %>
+    <div class="alert alert-error">
+      <strong><%= attr %></strong> <%= err %>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="span4">
+      <div class="control-group">
+        <%= f.label :privacy, "Privacy out of 10", :class => 'control-label' %>
+
+        <div class="controls">
+          <%= f.text_field :privacy, :class => 'span4' %>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label :stability, "Stability out of 10", :class => 'control-label' %>
+
+        <div class="controls">
+          <%= f.text_field :stability, :class => 'span4' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :support, "Support out of 10", :class => 'control-label' %>
+
+        <div class="controls">
+          <%= f.text_field :support, :class => 'span4' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :price_value, "Price-to-value out of 10", :class => 'control-label' %>
+
+        <div class="controls">
+          <%= f.text_field :price_value, :class => 'span4' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="span8">
+      <%= f.fields_for :review do |b| %>
+        <div class="control-group">
+          <%= b.label :content, :class => 'control-label' %>
+
+          <div class="controls">
+            <%= b.text_area :content, :rows => 4, :class => 'span8' %>
+          </div>
+        </div>
+      <% end %>
+
+      <%= f.fields_for :user do |u| %>
+        <div class="control-group">
+          <%= u.label :name, "Pseodonym", :class => 'control-label' %>
+
+          <div class="controls">
+            <%= u.text_field :name, :class => 'span4', :value => current_user.name %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button "Submit rating", :class => 'btn btn-primary' %>
+  </div>
+<% end %>

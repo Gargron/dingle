@@ -1,0 +1,7 @@
+<p class="lead">Hello, world! This is <strong>Dingle</strong>. I don't know why I called it that, but it's a <strong>rating and reviews resource for Internet Service Providers (ISPs)</strong>.</p>
+
+<ul>
+  <% @countries.each do |country| %>
+    <li><%= link_to country.name, country %></li>
+  <% end %>
+</ul>

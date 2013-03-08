@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dingle</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <h1 style="margin: 30px 0; text-align: center"><a href="/">Dingle</a></h1>
+      <hr />
+      
+      <%= yield %>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
