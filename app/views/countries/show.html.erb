@@ -3,14 +3,7 @@
   <li class="active"><%= @country.name %></li>
 </ul>
 
-<h3><%= t('countries.isps_of', country: @country.name) %></h3>
-
-<div class="btn-toolbar">
-  <div class="btn-group">
-    <a href="#" class="btn"><i class="icon-chevron-up"></i></a>
-    <a href="#" class="btn"><i class="icon-chevron-down"></i></a>
-  </div>
-</div>
+<h3 style="margin-bottom: 18px"><%= t('countries.isps_of', country: @country.name) %></h3>
 
 <table class="table table-bordered">
   <thead>
@@ -28,8 +21,8 @@
   <tbody>
     <% @providers.each do |provider| %>
       <tr>
-        <td><%= link_to provider.name, provider %></td>
-        <td><%= "%.1f" % (provider.overall || 0) %> (<%= "%.3f" % (provider.score || 0) %>)</td>
+        <td><%= link_to provider.name, [@country, provider] %></td>
+        <td><%= "%.1f" % (provider.overall || 0) %></td>
         <td><%= "%.1f" % (provider.privacy || 0) %></td>
         <td><%= "%.1f" % (provider.stability || 0) %></td>
         <td><%= "%.1f" % (provider.price_value || 0) %></td>
@@ -38,4 +31,10 @@
       </tr>
     <% end %>
   </tbody>
+
+  <tfoot>
+    <tr>
+      <td colspan="7">Are missing an ISP? Suggest it!</td>
+    </tr>
+  </tfoot>
 </table>

@@ -14,18 +14,19 @@ class RatingsController < ApplicationController
       end
     end
 
-    @provider    = Provider.find(params[:rating][:provider_id])
-    @rating      = Rating.new(params[:rating].except(:user))
-    @rating.user = current_user
+    @provider        = Provider.find(params[:provider_id])
+    @rating          = Rating.new(params[:rating].except(:user))
+    @rating.provider = @provider
+    @rating.user     = current_user
 
     if @rating.save
-      redirect_to @provider
+      redirect_to [@provider.country, @provider]
     else
       render :template => 'providers/show'
   	end
   end
 
   def show
-    render :nothing => true
+    @rating = Rating.find(params[:id])
   end
 end

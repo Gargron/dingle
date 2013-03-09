@@ -115,11 +115,9 @@
 <hr />
 
 <% if current_user.new_record? || @provider.ratings.where(:user_id => current_user.id).count == 0 %>
-  <%= form_for @rating do |f| %>
+  <%= form_for [@provider.country, @provider, @rating] do |f| %>
     <legend><%= t('ratings.submit_yours') %></legend>
 
-    <%= f.hidden_field :provider_id %>
-    
     <% @rating.errors.each do |attr, err| %>
       <div class="alert alert-error">
         <strong><%= attr %></strong> <%= err %>

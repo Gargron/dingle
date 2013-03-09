@@ -36,5 +36,7 @@ en:
       support: 'Support out of 10'
       price_value: 'Price to value ratio out of 10'
       submit: 'Submit rating'
+  reviews:
+    title: "%{name}'s review of %{provider}"
   users:
     name: 'Pseudonym'

@@ -45,7 +45,7 @@
       <% if current_user.id == rating.user_id %>
         &bull; <%= t('ratings.yours') %>
       <% elsif current_user.new_record? || rating.kudos.where(:user_id => current_user.id).count == 0  %>
-        &bull; <%= link_to t('ratings.kudos.give'), kudos_path(Kudo.new, :rating_id => rating.id), :method => :post %>
+        &bull; <%= link_to t('ratings.kudos.give'), kudos_path(rating, Kudo.new), :method => :post %>
       <% else %>
         &bull; <%= t('ratings.kudos.given') %>
       <% end %>

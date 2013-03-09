@@ -67,8 +67,13 @@ Dingle::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   root :to => 'home#index'
-  resources :countries, :only => :show
-  resources :providers, :only => :show
-  resources :ratings, :only => [:create, :show]
-  resources :kudos, :only => :create
+  
+  resources :countries, :only => :show do
+    resources :providers, :only => :show do
+      resources :ratings, :only => [:create, :show] do
+        resources :kudos, :only => :create
+      end
+    end
+  end
+  
 end
