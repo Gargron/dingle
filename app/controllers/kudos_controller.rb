@@ -9,6 +9,6 @@ class KudosController < ApplicationController
     kudo.user_id = current_user.id
     kudo.save
 
-    redirect_to rating
+    redirect_to [rating.provider.country, rating.provider, rating]
   end
 end

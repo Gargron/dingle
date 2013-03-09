@@ -34,7 +34,10 @@
 
   <tfoot>
     <tr>
-      <td colspan="7">Are missing an ISP? Suggest it!</td>
+      <td colspan="7">
+        <%= t('providers.missing') %>
+        <%= link_to t('providers.suggest'), new_country_provider_path(@country) %>
+      </td>
     </tr>
   </tfoot>
 </table>

@@ -6,7 +6,7 @@ class ProvidersController < ApplicationController
   end
 
   def new
-    @provider = Provider.new
+    @provider = Provider.new(country: Country.find(params[:country_id]))
   end
 
   def create

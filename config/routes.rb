@@ -69,7 +69,7 @@ Dingle::Application.routes.draw do
   root :to => 'home#index'
   
   resources :countries, :only => :show do
-    resources :providers, :only => :show do
+    resources :providers, :only => [:new, :show] do
       resources :ratings, :only => [:create, :show] do
         resources :kudos, :only => :create
       end

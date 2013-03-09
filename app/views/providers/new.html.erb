@@ -1,0 +1,5 @@
+<ul class="breadcrumb">
+  <li><%= link_to t('countries.title'), root_path %> <span class="divider">/</span></li>
+  <li><%= link_to @provider.country.name, country_path(@provider.country) %> <span class="divider">/</span></li>
+  <li class="active"><%= t('providers.suggest') %></li>
+</ul>
