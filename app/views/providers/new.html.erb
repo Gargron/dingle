@@ -3,3 +3,19 @@
   <li><%= link_to @provider.country.name, country_path(@provider.country) %> <span class="divider">/</span></li>
   <li class="active"><%= t('providers.suggest') %></li>
 </ul>
+
+<%= form_for [@provider.country, @provider] do |f| %>
+  <legend><%= t('providers.suggest') %></legend>
+
+  <div class="control-group">
+    <%= f.label :name, t('providers.name'), :class => 'control-label' %>
+
+    <div class="controls">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button t('providers.suggest'), :class => 'btn btn-primary' %>
+  </div>
+<% end %>
