@@ -1,0 +1,37 @@
+de:
+  welcome:
+    paragraph: "Hello, world! This is <strong>Dingle</strong>. I don't know why I called it that, but it's a <strong>rating and reviews resource for Internet Service Providers</strong> (ISPs)."
+  countries:
+    title: 'Länder'
+    isps_of: 'Internetanbieter von %{country}'
+  providers:
+    name: 'Internetanbieter'
+    overall: 'Endwert'
+    privacy: 'Datenschutz'
+    stability: 'Störfestigkeit'
+    support: 'Kundenbetreuung'
+    price_value: 'Preisleistungsverhältnis'
+    num_of_ratings: 'Anzahl der Bewertungen'
+  ratings:
+    best: 'Beste Bewertung'
+    best_html: 'Diese Rezension von <strong>%{name}</strong> war die positivste mit <strong>%{num} Zustimmenden</strong>.'
+    vs: 'vs.'
+    worst: 'Schlimmste Bewertung'
+    worst_html: 'Diese Rezension von <strong>%{name}</strong> war die negativste mit <strong>%{num} Zustimmenden</strong>.'
+    yours: 'Das ist deins!'
+    none: 'Es gibt hier noch keine Bewertungen'
+    submit_yours: 'Gib deine eigene Bewertung ab'
+    done: 'Vielen Dank für deine Bewertung!'
+    kudos:
+      give: 'Zustimmen'
+      given: 'Du stimmst der Bewertung zu!'
+      count: '%{count} Zustimmungen'
+    review: 'Rezension'
+    form:
+      privacy: 'Datenschutz aus 10'
+      stability: 'Störfestigkeit aus 10'
+      support: 'Kundenbetreuung aus 10'
+      price_value: 'Preisleistungsverhältnis aus 10'
+      submit: 'Bewertung abschicken'
+  users:
+    name: 'Angezeigter Name'
