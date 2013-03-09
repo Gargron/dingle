@@ -1,9 +1,11 @@
 class Admin::SessionsController < ApplicationController
   def new
+    @errors = []
   end
 
   def create
-    user = User.find_by_email(params[:email])
+    @errors = []
+    user    = User.find_by_email(params[:email])
 
     if user && user.admin? && user.authenticate(params[:password])
       session[:user_id] = user.id
@@ -11,6 +13,7 @@ class Admin::SessionsController < ApplicationController
 
       redirect_to root_path
     else
+      @errors << t('users.auth_no')
       render :new
     end
   end

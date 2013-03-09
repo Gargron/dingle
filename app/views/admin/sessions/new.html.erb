@@ -3,6 +3,13 @@
     <%= form_tag admin_sessions_path do %>
       <legend><%= t('users.login') %></legend>
 
+      <% @errors.each do |err| %>
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= err %>
+        </div>
+      <% end %>
+
       <div class="control-group">
         <%= label_tag :email, t('users.email'), :class => 'control-label' %>
 

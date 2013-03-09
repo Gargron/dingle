@@ -47,3 +47,10 @@ en:
     thanks: 'Thank you for your suggestion, it will be reviewed shortly'
   users:
     name: 'Nickname'
+    login: 'Login to your account'
+    email: 'E-mail address'
+    password: 'Password'
+    auth: 'Sign in'
+    auth_yes: 'Successfully logged you in. Hello!'
+    auth_no: 'Could not authenticate you with those credentials!'
+    bye: 'Good bye, thanks for coming!'

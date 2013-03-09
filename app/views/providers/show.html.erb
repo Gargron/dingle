@@ -120,12 +120,14 @@
 
     <% @rating.errors.each do |attr, err| %>
       <div class="alert alert-error">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong><%= attr %></strong> <%= err %>
       </div>
     <% end %>
 
     <% current_user.errors.each do |attr, err| %>
       <div class="alert alert-error">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
         <strong><%= attr %></strong> <%= err %>
       </div>
     <% end %>

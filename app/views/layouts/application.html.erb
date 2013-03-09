@@ -22,6 +22,14 @@
       <% end %>
 
       <%= yield %>
+
+      <% if current_user.admin? %>
+        <hr />
+
+        <p style="text-align: center">
+          <%= link_to t('users.logout'), admin_logout_path %>
+        </p>
+      <% end %>
     </div>
   </div>
 </div>

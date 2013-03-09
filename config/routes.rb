@@ -69,6 +69,9 @@ Dingle::Application.routes.draw do
   end
 
   namespace :admin do
-    resources :sessions, :only => [:new, :create, :destroy]
+    get 'login', :to => 'sessions#new', :as => 'login'
+    get 'logout', :to => 'sessions#destroy', :as => 'logout' 
+
+    resources :sessions, :only => [:create]
   end
 end
