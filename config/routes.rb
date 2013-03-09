@@ -1,18 +1,4 @@
 Dingle::Application.routes.draw do
-  get "suggestions/new"
-
-  get "suggestions/create"
-
-  get "ratings/show"
-
-  get "kudos/create"
-
-  get "providers/show"
-
-  get "countries/show"
-
-  get "home/index"
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -81,5 +67,8 @@ Dingle::Application.routes.draw do
       end
     end
   end
-  
+
+  namespace :admin do
+    resources :sessions, :only => [:new, :create, :destroy]
+  end
 end

@@ -124,6 +124,12 @@
       </div>
     <% end %>
 
+    <% current_user.errors.each do |attr, err| %>
+      <div class="alert alert-error">
+        <strong><%= attr %></strong> <%= err %>
+      </div>
+    <% end %>
+
     <div class="row">
       <div class="span4">
         <div class="control-group">

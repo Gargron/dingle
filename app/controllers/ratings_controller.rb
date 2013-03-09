@@ -1,11 +1,16 @@
 class RatingsController < ApplicationController
   def create
+    @provider        = Provider.find(params[:provider_id])
+    @rating          = Rating.new(params[:rating].except(:user))
+    @rating.provider = @provider
 
     if current_user.new_record?
       current_user.name = params[:rating][:user][:name]
 
       if current_user.save
         session[:user_id] = current_user.id
+      else
+        render :template => 'providers/show' and return
       end
     else
       if params[:rating][:user][:name] != current_user.name
@@ -13,10 +18,7 @@ class RatingsController < ApplicationController
         current_user.save
       end
     end
-
-    @provider        = Provider.find(params[:provider_id])
-    @rating          = Rating.new(params[:rating].except(:user))
-    @rating.provider = @provider
+    
     @rating.user     = current_user
 
     if @rating.save
