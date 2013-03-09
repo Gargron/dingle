@@ -40,5 +40,10 @@ en:
       submit: 'Submit rating'
   reviews:
     title: "%{name}'s review of %{provider}"
+  suggestions:
+    title: 'ISP suggestions'
+    provider: 'ISP name'
+    submit: 'Submit your suggestion'
+    thanks: 'Thank you for your suggestion, it will be reviewed shortly'
   users:
-    name: 'Pseudonym'
+    name: 'Nickname'

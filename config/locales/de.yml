@@ -37,5 +37,10 @@ de:
       submit: 'Bewertung abschicken'
   reviews:
     title: "%{name}s Bewertung von %{provider}"
+  suggestions:
+    title: 'Internetanbieter vorschlagen'
+    provider: 'Name des Internetanbieters'
+    submit: 'Vorschlag absenden'
+    thanks: 'Vielen Dank für den Vorschlag! Wir überprüfen ihn in kurzer Zeit'
   users:
     name: 'Angezeigter Name'

@@ -1,4 +1,8 @@
 Dingle::Application.routes.draw do
+  get "suggestions/new"
+
+  get "suggestions/create"
+
   get "ratings/show"
 
   get "kudos/create"
@@ -69,6 +73,8 @@ Dingle::Application.routes.draw do
   root :to => 'home#index'
   
   resources :countries, :only => :show do
+    resources :provider_suggestions, :only => [:new, :create], :path => 'suggestions', :controller => 'suggestions'
+
     resources :providers, :only => [:new, :create, :show] do
       resources :ratings, :only => [:create, :show] do
         resources :kudos, :only => :create
