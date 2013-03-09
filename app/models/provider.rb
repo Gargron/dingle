@@ -1,5 +1,6 @@
 class Provider < ActiveRecord::Base
   attr_accessible :country, :name
+  
   belongs_to :country
   has_many :ratings, :dependent => :destroy
 

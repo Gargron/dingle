@@ -29,7 +29,7 @@
     <% @providers.each do |provider| %>
       <tr>
         <td><%= link_to provider.name, provider %></td>
-        <td><%= "%.1f" % (provider.overall || 0) %></td>
+        <td><%= "%.1f" % (provider.overall || 0) %> (<%= "%.3f" % (provider.score || 0) %>)</td>
         <td><%= "%.1f" % (provider.privacy || 0) %></td>
         <td><%= "%.1f" % (provider.stability || 0) %></td>
         <td><%= "%.1f" % (provider.price_value || 0) %></td>

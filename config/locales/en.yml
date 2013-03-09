@@ -17,10 +17,18 @@ en:
     num_of_ratings: 'Number of ratings'
   ratings:
     best: 'Best review'
+    best_html: 'That review by <strong>%{name}</strong> was most positive and appreciated by <strong>%{num} people</strong>.'
+    vs: 'vs.'
     worst: 'Worst review'
-    by: 'By %{name}'
+    worst_html: 'That review by <strong>%{name}</strong> was most negative and appreciated by <strong>%{num} people</strong>.'
+    yours: 'This is yours!'
+    none: 'There are no ratings yet'
     submit_yours: 'Submit your own rating'
-    kudos: 'Give kudos'
+    done: 'Thank you for submitting your rating!'
+    kudos:
+      give: 'Give kudos'
+      given: 'You appreciate this!'
+      count: '%{count} kudos'
     review: 'Review'
     form:
       privacy: 'Privacy out of 10'

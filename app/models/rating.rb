@@ -12,15 +12,20 @@ class Rating < ActiveRecord::Base
   validates :privacy, :numericality => { :only_integer => true, :less_than => 11 }, :presence => true
   validates :stability, :numericality => { :only_integer => true, :less_than => 11 }, :presence => true
   validates :support, :numericality => { :only_integer => true, :less_than => 11 }, :presence => true
-  validates :provider_id, :uniqueness => { :score => :user_id }
+  validates :provider_id, :uniqueness => { :scope => :user_id }
   validates :review, :presence => true
 
-  scope :best, order("overall DESC")
-  scope :worst, order("overall ASC")
+  scope :best, order("overall DESC, kudos_num DESC").limit(1)
+  scope :worst, order("overall ASC, kudos_num DESC").limit(1)
 
   before_save :calculate_overall
   after_save :update_provider_scores
 
+  def update_kudos
+    self.kudos_num = self.kudos.count
+    self.save
+  end
+  
   private
 
   def update_provider_scores

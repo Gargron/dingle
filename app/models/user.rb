@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :ip, :name
+  
   has_many :ratings
   has_many :kudos
 

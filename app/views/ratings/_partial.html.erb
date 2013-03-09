@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="span5">
+    <table class="table table-bordered table-striped">
+      <col width="45%" />
+      <col width="10%" />
+      <col width="45%" />
+
+      <tbody>
+        <tr>
+          <th><%= t('providers.privacy') %></th>
+          <td style="text-align: center"><%= rating.privacy %></td>
+          <td><% 1.upto(rating.privacy) do |x| %><i class="icon-star"></i><% end %></td>
+        </td>
+
+        <tr>
+          <th><%= t('providers.stability') %></th>
+          <td style="text-align: center"><%= rating.stability %></td>
+          <td><% 1.upto(rating.stability) do |x| %><i class="icon-star"></i><% end %></td>
+        </td>
+
+        <tr>
+          <th><%= t('providers.price_value') %></th>
+          <td style="text-align: center"><%= rating.price_value %></td>
+          <td><% 1.upto(rating.price_value) do |x| %><i class="icon-star"></i><% end %></td>
+        </td>
+
+        <tr>
+          <th><%= t('providers.support') %></th>
+          <td style="text-align: center"><%= rating.support %></td>
+          <td><% 1.upto(rating.support) do |x| %><i class="icon-star"></i><% end %></td>
+        </td>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="span7">
+    <div class="speech-bubble">
+      <%= markdown(rating.review.content) %>
+    </div>
+
+    <p>
+      <strong><%= rating.user.name %></strong>
+      &bull; <span class="muted"><%= rating.created_at.to_datetime.strftime("%Y-%m-%d") %></span>
+      &bull; <%= t('ratings.kudos.count', :count => rating.kudos.count) %>
+      <% if current_user.id == rating.user_id %>
+        &bull; <%= t('ratings.yours') %>
+      <% elsif current_user.new_record? || rating.kudos.where(:user_id => current_user.id).count == 0  %>
+        &bull; <%= link_to t('ratings.kudos.give'), kudos_path(Kudo.new, :rating_id => rating.id), :method => :post %>
+      <% else %>
+        &bull; <%= t('ratings.kudos.given') %>
+      <% end %>
+    </p>
+  </div>
+</div>

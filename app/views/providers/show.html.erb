@@ -32,155 +32,162 @@
 
 <% if @provider.ratings.count > 1 %>
   <div class="row">
-    <div class="span6">
+    <div class="span4">
       <h4 style="margin-bottom: 18px"><%= t('ratings.best') %></h4>
+    </div>
 
+    <div class="span4">
+      <h4 class="muted" style="text-align: center; margin-bottom: 18px"><%= t('ratings.vs') %></h4>
+    </div>
+
+    <div class="span4">
+      <h4 style="margin-bottom: 18px"><%= t('ratings.worst') %></h4>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="span4">
       <div class="speech-bubble">
         <%= markdown(@provider.ratings.best.first.review.content) %>
       </div>
 
-      <p><%= t('ratings.by', name: @provider.ratings.best.first.user.name) %> &bull; <%= @provider.ratings.best.first.created_at %></p>
+      <p><%= t('ratings.best_html', name: @provider.ratings.best.first.user.name, num: @provider.ratings.best.first.kudos_num || 0) %></p>
     </div>
 
-    <div class="span6">
-      <h4 style="margin-bottom: 18px"><%= t('ratings.worst') %></h4>
+    <div class="span4">
+      <table class="table table-striped table-bordered">
+        <col width="10%" />
+        <col width="80%" />
+        <col width="10%" />
 
+        <tbody>
+          <tr>
+            <td><%= @provider.ratings.best.first.privacy %></td>
+            <th style="text-align: center"><%= t('providers.privacy') %></th>
+            <td style="text-align: right"><%= @provider.ratings.worst.first.privacy %></td>
+          </tr>
+
+          <tr>
+            <td><%= @provider.ratings.best.first.stability %></td>
+            <th style="text-align: center"><%= t('providers.stability') %></th>
+            <td style="text-align: right"><%= @provider.ratings.worst.first.stability %></td>
+          </tr>
+
+          <tr>
+            <td><%= @provider.ratings.best.first.support %></td>
+            <th style="text-align: center"><%= t('providers.support') %></th>
+            <td style="text-align: right"><%= @provider.ratings.worst.first.support %></td>
+          </tr>
+
+          <tr>
+            <td><%= @provider.ratings.best.first.price_value %></td>
+            <th style="text-align: center"><%= t('providers.price_value') %></th>
+            <td style="text-align: right"><%= @provider.ratings.worst.first.price_value %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="span4">
       <div class="speech-bubble">
         <%= markdown(@provider.ratings.worst.first.review.content) %>
       </div>
 
-      <p><%= t('ratings.by', name: @provider.ratings.worst.first.user.name) %> &bull; <%= @provider.ratings.worst.first.created_at %></p>
+      <p><%= t('ratings.worst_html', name: @provider.ratings.worst.first.user.name, num: @provider.ratings.worst.first.kudos_num || 0) %></p>
     </div>
   </div>
 
   <hr />
 <% end %>
 
-<ul class="unstyled">
-  <% @provider.ratings.includes(:review, :user).each do |rating| %>
-    <li>
-      <div class="row">
-        <div class="span4">
-          <table class="table table-bordered table-striped">
-            <col width="40%" />
-
-            <tbody>
-              <tr>
-                <th><%= t('providers.privacy') %></th>
-                <td><% 1.upto(rating.privacy) do |x| %><i class="icon-star"></i><% end %></td>
-              </td>
-
-              <tr>
-                <th><%= t('providers.stability') %></th>
-                <td><% 1.upto(rating.stability) do |x| %><i class="icon-star"></i><% end %></td>
-              </td>
-
-              <tr>
-                <th><%= t('providers.price_value') %></th>
-                <td><% 1.upto(rating.price_value) do |x| %><i class="icon-star"></i><% end %></td>
-              </td>
-
-              <tr>
-                <th><%= t('providers.support') %></th>
-                <td><% 1.upto(rating.support) do |x| %><i class="icon-star"></i><% end %></td>
-              </td>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="span8">
-          <div class="speech-bubble">
-            <%= markdown(rating.review.content) %>
-          </div>
-
-          <p>
-            <%= raw t('ratings.by', name: rating.user.name) %>
-            &bull; <%= rating.created_at %>
-            &bull; <%= rating.kudos.count %> people agree
-            <% if not (not current_user.new_record? && rating.kudos.where_user_id(current_user.id).count > 0) %>
-              &bull; <%= link_to t('ratings.kudos'), kudos_path(Kudo.new, :rating_id => rating.id), :method => :post %>
-            <% else %>
-              &bull; You appreciate this
-            <% end %>
-          </p>
-        </div>
-      </div>
-    </li>
-  <% end %>
-</ul>
+<% if ratings = @provider.ratings.includes(:review, :user) and not ratings.empty? %>
+  <ul class="unstyled">
+    <% ratings.each do |rating| %>
+      <li>
+        <%= render :partial => "ratings/partial", :locals => { :rating => rating } %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p class="muted" style="text-align: center"><%= t('ratings.none') %></p>
+<% end %>
 
 <hr />
 
-<%= form_for @rating do |f| %>
-  <legend><%= t('ratings.submit_yours') %></legend>
+<% if current_user.new_record? || @provider.ratings.where(:user_id => current_user.id).count == 0 %>
+  <%= form_for @rating do |f| %>
+    <legend><%= t('ratings.submit_yours') %></legend>
 
-  <%= f.hidden_field :provider_id %>
-  
-  <% @rating.errors.each do |attr, err| %>
-    <div class="alert alert-error">
-      <strong><%= attr %></strong> <%= err %>
+    <%= f.hidden_field :provider_id %>
+    
+    <% @rating.errors.each do |attr, err| %>
+      <div class="alert alert-error">
+        <strong><%= attr %></strong> <%= err %>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="span4">
+        <div class="control-group">
+          <%= f.label :privacy, t('ratings.form.privacy'), :class => 'control-label' %>
+
+          <div class="controls">
+            <%= f.text_field :privacy, :class => 'span4' %>
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <%= f.label :stability, t('ratings.form.stability'), :class => 'control-label' %>
+
+          <div class="controls">
+            <%= f.text_field :stability, :class => 'span4' %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :support, t('ratings.form.support'), :class => 'control-label' %>
+
+          <div class="controls">
+            <%= f.text_field :support, :class => 'span4' %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :price_value, t('ratings.form.price_value'), :class => 'control-label' %>
+
+          <div class="controls">
+            <%= f.text_field :price_value, :class => 'span4' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="span8">
+        <%= f.fields_for :review do |b| %>
+          <div class="control-group">
+            <%= b.label :content, t('ratings.review'), :class => 'control-label' %>
+
+            <div class="controls">
+              <%= b.text_area :content, :rows => 4, :class => 'span8' %>
+            </div>
+          </div>
+        <% end %>
+
+        <%= f.fields_for :user do |u| %>
+          <div class="control-group">
+            <%= u.label :name, t('users.name'), :class => 'control-label' %>
+
+            <div class="controls">
+              <%= u.text_field :name, :class => 'span4', :value => current_user.name %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button t('ratings.form.submit'), :class => 'btn btn-primary' %>
     </div>
   <% end %>
-
-  <div class="row">
-    <div class="span4">
-      <div class="control-group">
-        <%= f.label :privacy, t('ratings.form.privacy'), :class => 'control-label' %>
-
-        <div class="controls">
-          <%= f.text_field :privacy, :class => 'span4' %>
-        </div>
-      </div>
-      
-      <div class="control-group">
-        <%= f.label :stability, t('ratings.form.stability'), :class => 'control-label' %>
-
-        <div class="controls">
-          <%= f.text_field :stability, :class => 'span4' %>
-        </div>
-      </div>
-
-      <div class="control-group">
-        <%= f.label :support, t('ratings.form.support'), :class => 'control-label' %>
-
-        <div class="controls">
-          <%= f.text_field :support, :class => 'span4' %>
-        </div>
-      </div>
-
-      <div class="control-group">
-        <%= f.label :price_value, t('ratings.form.price_value'), :class => 'control-label' %>
-
-        <div class="controls">
-          <%= f.text_field :price_value, :class => 'span4' %>
-        </div>
-      </div>
-    </div>
-
-    <div class="span8">
-      <%= f.fields_for :review do |b| %>
-        <div class="control-group">
-          <%= b.label :content, t('ratings.review'), :class => 'control-label' %>
-
-          <div class="controls">
-            <%= b.text_area :content, :rows => 4, :class => 'span8' %>
-          </div>
-        </div>
-      <% end %>
-
-      <%= f.fields_for :user do |u| %>
-        <div class="control-group">
-          <%= u.label :name, t('users.name'), :class => 'control-label' %>
-
-          <div class="controls">
-            <%= u.text_field :name, :class => 'span4', :value => current_user.name %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button t('ratings.form.submit'), :class => 'btn btn-primary' %>
-  </div>
+<% else %>
+  <p class="muted" style="text-align: center"><%= t('ratings.done') %></p>
 <% end %>

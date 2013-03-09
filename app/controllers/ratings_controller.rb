@@ -26,6 +26,6 @@ class RatingsController < ApplicationController
   end
 
   def show
-    render :nothing
+    render :nothing => true
   end
 end
