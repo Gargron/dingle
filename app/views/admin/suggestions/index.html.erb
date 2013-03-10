@@ -1,4 +1,9 @@
-<h3><%= t('suggestions.title') %></h3>
+<ul class="breadcrumb">
+  <li><%= link_to t('countries.title'), root_path %> <span class="divider">/</span></li>
+  <li class="active"><%= t('suggestions.title') %></li>
+</ul>
+
+<h3 style="margin-bottom: 18px"><%= t('suggestions.title') %></h3>
 
 <table class="table table-bordered table-striped">
   <thead>

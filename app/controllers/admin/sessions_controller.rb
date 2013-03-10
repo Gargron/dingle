@@ -9,9 +9,7 @@ class Admin::SessionsController < ApplicationController
 
     if user && user.admin? && user.authenticate(params[:password])
       session[:user_id] = user.id
-      flash[:notice]    = t('users.auth_yes')
-
-      redirect_to root_path
+      redirect_to admin_suggestions_path, :notice => t('users.auth_yes')
     else
       @errors << t('users.auth_no')
       render :new
@@ -20,8 +18,6 @@ class Admin::SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    flash[:notice]    = t('users.bye')
-
-    redirect_to root_path
+    redirect_to root_path, :notice => t('users.bye')
   end
 end
