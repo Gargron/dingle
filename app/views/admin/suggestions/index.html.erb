@@ -1,0 +1,27 @@
+<h3><%= t('suggestions.title') %></h3>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th><%= t('providers.country') %></th>
+      <th><%= t('providers.name') %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if not @suggestions.empty? %>
+      <% @suggestions.each do |suggestion| %>
+        <tr>
+          <td><%= suggestion.country.name %></td>
+          <td><%= suggestion.name %></td>
+          <td><%= link_to t('suggestions.accept'), admin_suggestion_accept_path(suggestion), :method => :post %></td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan="3"><%= t('suggestions.no_pending') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

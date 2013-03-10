@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130309204836) do
+ActiveRecord::Schema.define(:version => 20130310130705) do
 
   create_table "countries", :force => true do |t|
     t.string   "name"
@@ -30,8 +30,9 @@ ActiveRecord::Schema.define(:version => 20130309204836) do
   create_table "provider_suggestions", :force => true do |t|
     t.integer  "country_id"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "accepted",   :default => false
   end
 
   create_table "providers", :force => true do |t|

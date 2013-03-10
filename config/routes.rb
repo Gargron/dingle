@@ -1,4 +1,6 @@
 Dingle::Application.routes.draw do
+  get "suggestions/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -73,5 +75,9 @@ Dingle::Application.routes.draw do
     get 'logout', :to => 'sessions#destroy', :as => 'logout' 
 
     resources :sessions, :only => [:create]
+    
+    resources :suggestions, :only => [:index] do
+      post 'accept'
+    end
   end
 end

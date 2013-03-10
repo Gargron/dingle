@@ -1,6 +1,3 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
   welcome:
     paragraph: "Hello, world! This is <strong>Dingle</strong>. I don't know why I called it that, but it's a <strong>rating and reviews resource for Internet Service Providers</strong> (ISPs)."
@@ -17,6 +14,8 @@ en:
     num_of_ratings: 'Number of ratings'
     suggest: 'Suggest an ISP'
     missing: 'Missing an ISP?'
+    country: 'Country'
+    none: 'No providers yet'
   ratings:
     best: 'Best review'
     best_html: 'That review by <strong>%{name}</strong> was most positive and appreciated by <strong>%{num} people</strong>.'
@@ -45,6 +44,8 @@ en:
     provider: 'ISP name'
     submit: 'Submit your suggestion'
     thanks: 'Thank you for your suggestion, it will be reviewed shortly'
+    accept: 'Accept suggestion'
+    accepted: 'Suggestion accepted'
   users:
     name: 'Nickname'
     login: 'Login to your account'

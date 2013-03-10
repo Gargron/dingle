@@ -7,6 +7,8 @@ class Provider < ActiveRecord::Base
   validates :name, :presence => true
   validates :country_id, :presence => true
 
+  scope :best, order("score DESC")
+
   def update_scores
     self.overall     = self.ratings.average(:overall)
     self.privacy     = self.ratings.average(:privacy)

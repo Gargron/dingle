@@ -14,6 +14,8 @@ de:
     num_of_ratings: 'Anzahl der Bewertungen'
     suggest: 'Schlage einen ISP vor'
     missing: 'Fehlt ein Internetanbieter?'
+    country: 'Land'
+    none: 'Noch keine Internetanbieter'
   ratings:
     best: 'Beste Bewertung'
     best_html: 'Diese Rezension von <strong>%{name}</strong> war die positivste mit <strong>%{num} Zustimmenden</strong>.'
@@ -42,5 +44,14 @@ de:
     provider: 'Name des Internetanbieters'
     submit: 'Vorschlag absenden'
     thanks: 'Vielen Dank für den Vorschlag! Wir überprüfen ihn in kurzer Zeit'
+    accept: 'Vorschlag annehmen'
+    accepted: 'Vorschlag übernommen'
   users:
     name: 'Angezeigter Name'
+    login: 'Ins Konto einloggen'
+    email: 'E-mail Adresse'
+    password: 'Kennwort'
+    auth: 'Einloggen'
+    auth_yes: 'Erfolgreich eingeloggt. Hi!'
+    auth_no: 'Mit diesen Daten konnte man nichts machen'
+    bye: 'Tschüss und bis zum nächsten Mal!'

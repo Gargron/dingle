@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-countries = Country.create([{ name: 'Deutschland', code: 'de' }, { name: 'France', code: 'fr' }])
-Provider.create(name: 'Kabel Deutschland', country: countries.first)
-User.create(ip: '127.0.0.1')
+countries = Country.create([
+  { name: 'Deutschland', code: 'de' },
+  { name: 'United Kingdom', code: 'gb' },
+  { name: 'United States', code: 'us' },
+  { name: 'Australia', code: 'au' }
+])
