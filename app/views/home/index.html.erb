@@ -1,7 +1,11 @@
 <p class="lead"><%= raw t('welcome.paragraph') %></p>
 
-<ul>
-  <% @countries.each do |country| %>
-    <li><%= link_to country.name, country %></li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="span12">
+    <ul class="nav nav-tabs nav-stacked countries">
+      <% @countries.each do |country| %>
+        <li><i class="icon-chevron-right pull-right chevron"></i> <%= link_to country.name, country %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
