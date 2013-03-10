@@ -138,7 +138,7 @@
           <%= f.label :privacy, t('ratings.form.privacy'), :class => 'control-label' %>
 
           <div class="controls">
-            <%= f.text_field :privacy, :class => 'span4' %>
+            <%= f.select :privacy, 1..10, {}, :class => 'span4' %>
           </div>
         </div>
         
@@ -146,7 +146,7 @@
           <%= f.label :stability, t('ratings.form.stability'), :class => 'control-label' %>
 
           <div class="controls">
-            <%= f.text_field :stability, :class => 'span4' %>
+            <%= f.select :stability, 1..10, {}, :class => 'span4' %>
           </div>
         </div>
 
@@ -154,7 +154,7 @@
           <%= f.label :support, t('ratings.form.support'), :class => 'control-label' %>
 
           <div class="controls">
-            <%= f.text_field :support, :class => 'span4' %>
+            <%= f.select :support, 1..10, {}, :class => 'span4' %>
           </div>
         </div>
 
@@ -162,7 +162,7 @@
           <%= f.label :price_value, t('ratings.form.price_value'), :class => 'control-label' %>
 
           <div class="controls">
-            <%= f.text_field :price_value, :class => 'span4' %>
+            <%= f.select :price_value, 1..10, {}, :class => 'span4' %>
           </div>
         </div>
       </div>

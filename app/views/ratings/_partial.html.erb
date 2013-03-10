@@ -40,7 +40,7 @@
 
     <p>
       <strong><%= rating.user.name %></strong>
-      &bull; <span class="muted"><%= rating.created_at.to_datetime.strftime("%Y-%m-%d") %></span>
+      &bull; <span class="muted"><%= link_to rating.created_at.to_datetime.strftime("%Y-%m-%d"), [rating.provider.country, rating.provider, rating] %></span>
       &bull; <%= t('ratings.kudos.count', :count => rating.kudos.count) %>
       <% if current_user.id == rating.user_id %>
         &bull; <%= t('ratings.yours') %>
