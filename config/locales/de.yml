@@ -26,6 +26,7 @@ de:
     none: 'Es gibt hier noch keine Bewertungen'
     submit_yours: 'Gib deine eigene Bewertung ab'
     done: 'Vielen Dank für deine Bewertung!'
+    only_once: 'wurde schon bewertet'
     kudos:
       give: 'Zustimmen'
       given: 'Du stimmst der Bewertung zu!'
@@ -60,3 +61,13 @@ de:
     previous_label: "&#8592; Zurück"
     next_label: "Weiter &#8594;"
     page_gap: "&hellip;"
+  activerecord:
+    attributes:
+      review:
+        content: 'Rezensionstext'
+      rating:
+        price_value: 'Bewertung des Preisleistungsverhältnisses'
+        support: 'Bewertung der Kundenbetreuung'
+        stability: 'Bewertung der Störfestigkeit'
+        privacy: 'Bewertung des Datenschutzes'
+        provider_id: 'Internetanbieter'

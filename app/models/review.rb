@@ -3,5 +3,5 @@ class Review < ActiveRecord::Base
   
   belongs_to :rating
 
-  validates :content, :presence => true, :length => { :maximum => 500 }
+  validates :content, :presence => true
 end

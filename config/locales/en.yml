@@ -26,6 +26,7 @@ en:
     none: 'There are no ratings yet'
     submit_yours: 'Submit your own rating'
     done: 'Thank you for submitting your rating!'
+    only_once: 'was already rated'
     kudos:
       give: 'Give kudos'
       given: 'You appreciate this!'
@@ -60,3 +61,13 @@ en:
     previous_label: "&#8592; Previous"
     next_label: "Next &#8594;"
     page_gap: "&hellip;"
+  activerecord:
+    attributes:
+      review:
+        content: 'Review body'
+      rating:
+        price_value: 'Price to value rating'
+        support: 'Support rating'
+        stability: 'Stability rating'
+        privacy: 'Privacy rating'
+        provider_id: 'ISP'
