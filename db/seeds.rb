@@ -18,6 +18,7 @@ end
 if Provider.count == 0
   de = Country.find_by_code('de')
   us = Country.find_by_code('us')
+  gb = Country.find_by_code('gb')
 
   providers = Provider.create([
     { name: 'Vodafone D2', country: de },
