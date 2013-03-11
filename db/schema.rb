@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130310130705) do
+ActiveRecord::Schema.define(:version => 20130311225334) do
 
   create_table "countries", :force => true do |t|
     t.string   "name"
@@ -38,15 +38,17 @@ ActiveRecord::Schema.define(:version => 20130310130705) do
   create_table "providers", :force => true do |t|
     t.string   "name"
     t.integer  "country_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.float    "overall"
-    t.float    "privacy"
-    t.float    "support"
-    t.float    "stability"
-    t.float    "price_value"
-    t.float    "score"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.float    "overall",     :default => 0.0
+    t.float    "privacy",     :default => 0.0
+    t.float    "support",     :default => 0.0
+    t.float    "stability",   :default => 0.0
+    t.float    "price_value", :default => 0.0
+    t.float    "score",       :default => 0.0
   end
+
+  add_index "providers", ["score"], :name => "index_providers_on_score"
 
   create_table "ratings", :force => true do |t|
     t.integer  "provider_id"
