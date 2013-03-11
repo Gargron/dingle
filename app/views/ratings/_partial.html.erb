@@ -35,7 +35,15 @@
 
   <div class="span7">
     <div class="speech-bubble">
-      <%= markdown(rating.review.content) %>
+      <% if full %>
+        <%= markdown(rating.review.content) %>
+      <% else %>
+        <%= markdown(truncate(rating.review.content, :length => 200, :separator => ' ')) %>
+        
+        <p>
+          <%= link_to t('ratings.more_html'), [rating.provider.country, rating.provider, rating] %>
+        </p>
+      <% end %>
     </div>
 
     <p>

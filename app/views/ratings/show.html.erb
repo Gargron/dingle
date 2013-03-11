@@ -1,8 +1,8 @@
 <ul class="breadcrumb">
   <li><%= link_to t('countries.title'), root_path %> <span class="divider">/</span></li>
   <li><%= link_to @rating.provider.country.name, country_path(@rating.provider.country) %> <span class="divider">/</span></li>
-  <li><%= link_to @rating.provider.name, provider_path(@rating.provider) %> <span class="divider">/</span></li>
+  <li><%= link_to @rating.provider.name, country_provider_path(@rating.provider.country, @rating.provider) %> <span class="divider">/</span></li>
   <li class="active"><%= t('reviews.title', name: @rating.user.name, provider: @rating.provider.name) %></li>
 </ul>
 
-<%= render :partial => "partial", :locals => { :rating => @rating } %>
+<%= render :partial => "partial", :locals => { :rating => @rating, :full => true } %>
