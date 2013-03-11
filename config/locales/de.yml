@@ -56,3 +56,7 @@ de:
     auth_no: 'Mit diesen Daten konnte man nichts machen'
     bye: 'Tschüss und bis zum nächsten Mal!'
   made_by_html: 'Ein Projekt von @Gargron'
+  will_paginate:
+    previous_label: "&#8592; Zurück"
+    next_label: "Weiter &#8594;"
+    page_gap: "&hellip;"

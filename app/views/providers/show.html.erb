@@ -100,7 +100,7 @@
   <hr />
 <% end %>
 
-<% if ratings = @provider.ratings.includes(:review, :user) and not ratings.empty? %>
+<% if ratings = @provider.ratings.includes(:review, :user).paginate(:page => params[:page]) and not ratings.empty? %>
   <ul class="unstyled">
     <% ratings.each do |rating| %>
       <li>
@@ -108,6 +108,8 @@
       </li>
     <% end %>
   </ul>
+
+  <%= will_paginate ratings, :renderer => BootstrapPagination::Rails %>
 <% else %>
   <p class="muted" style="text-align: center"><%= t('ratings.none') %></p>
 <% end %>

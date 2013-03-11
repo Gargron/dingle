@@ -2,7 +2,7 @@ class Admin::SuggestionsController < ApplicationController
   before_filter :is_admin?
 
   def index
-    @suggestions = ProviderSuggestion.waiting.all
+    @suggestions = ProviderSuggestion.waiting.paginate(:page => params[:page])
   end
 
   def accept
