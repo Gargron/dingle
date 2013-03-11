@@ -13,5 +13,9 @@ class ApplicationController < ActionController::Base
   	@current_user ||= session[:user_id] ? User.find(session[:user_id]) : User.new_guest(request.remote_ip)
   end
 
+  def default_url_options(options={})
+    { :lang => I18n.locale }
+  end
+
   helper_method :current_user
 end

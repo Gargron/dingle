@@ -37,3 +37,4 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'statistics2'
 gem 'redcarpet'
+gem 'will_paginate', '~> 3.0'
