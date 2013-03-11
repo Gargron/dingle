@@ -26,7 +26,6 @@ de:
     none: 'Es gibt hier noch keine Bewertungen'
     submit_yours: 'Gib deine eigene Bewertung ab'
     done: 'Vielen Dank für deine Bewertung!'
-    only_once: 'wurde schon bewertet'
     kudos:
       give: 'Zustimmen'
       given: 'Du stimmst der Bewertung zu!'

@@ -26,7 +26,6 @@ en:
     none: 'There are no ratings yet'
     submit_yours: 'Submit your own rating'
     done: 'Thank you for submitting your rating!'
-    only_once: 'was already rated'
     kudos:
       give: 'Give kudos'
       given: 'You appreciate this!'
