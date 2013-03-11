@@ -55,3 +55,4 @@ en:
     auth_yes: 'Successfully logged you in. Hello!'
     auth_no: 'Could not authenticate you with those credentials!'
     bye: 'Good bye, thanks for coming!'
+  made_by_html: 'Made by @Gargron'

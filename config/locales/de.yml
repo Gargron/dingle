@@ -55,3 +55,4 @@ de:
     auth_yes: 'Erfolgreich eingeloggt. Hi!'
     auth_no: 'Mit diesen Daten konnte man nichts machen'
     bye: 'Tschüss und bis zum nächsten Mal!'
+  made_by_html: 'Ein Projekt von @Gargron'

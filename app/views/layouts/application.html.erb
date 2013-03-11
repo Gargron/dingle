@@ -11,7 +11,7 @@
 <div class="container">
   <div class="row">
     <div class="span12">
-      <h1 style="margin: 30px 0; text-align: center"><a href="/">Dingle</a></h1>
+      <h1 style="margin: 30px 0; text-align: center"><a href="/" class="site-title">Dingle</a></h1>
       <hr />
       
       <% if flash[:notice] %>
@@ -23,13 +23,18 @@
 
       <%= yield %>
 
-      <% if current_user.admin? %>
-        <hr />
+      <hr />
 
-        <p style="text-align: center">
-          <%= link_to t('users.logout'), admin_logout_path %>
-        </p>
-      <% end %>
+      <ul class="unstyled footer muted">
+        <li class="pull-left"><%= t('made_by_html') %></li>
+        <li>&copy; Dingle</li>
+
+        <% if current_user.admin? %>
+          <li>
+            <%= link_to t('users.logout'), admin_logout_path %>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
