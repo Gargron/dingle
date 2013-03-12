@@ -25,7 +25,7 @@ class SuggestionsController < ApplicationController
     end
 
     @suggestion = ProviderSuggestion.find(params[:id])
-    @suggestion.update_attributes(params[:suggestion])
+    @suggestion.update_attributes(params[:provider_suggestion])
     respond_with @suggestion
   end
 end

@@ -73,6 +73,7 @@ Dingle::Application.routes.draw do
   end
 
   resources :reviews, :only => [:update]
+  resources :suggestions, :only => [:update]
 
   namespace :admin do
     get 'login', :to => 'sessions#new', :as => 'login'
