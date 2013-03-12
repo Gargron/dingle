@@ -1,4 +1,6 @@
 Dingle::Application.routes.draw do
+  get "reviews/update"
+
   get "suggestions/index"
 
   # The priority is based upon order of creation:
@@ -69,6 +71,8 @@ Dingle::Application.routes.draw do
       end
     end
   end
+
+  resources :reviews, :only => [:update]
 
   namespace :admin do
     get 'login', :to => 'sessions#new', :as => 'login'
