@@ -8,10 +8,10 @@ class Rating < ActiveRecord::Base
 
   accepts_nested_attributes_for :review, :allow_destroy => true
 
-  validates :price_value, :numericality => { :only_integer => true, :less_than => 11 }, :presence => true
-  validates :privacy, :numericality => { :only_integer => true, :less_than => 11 }, :presence => true
-  validates :stability, :numericality => { :only_integer => true, :less_than => 11 }, :presence => true
-  validates :support, :numericality => { :only_integer => true, :less_than => 11 }, :presence => true
+  validates :price_value, :numericality => { :only_integer => true, :less_than => 11, :greater_than => 0 }, :presence => true
+  validates :privacy, :numericality => { :only_integer => true, :less_than => 11, :greater_than => 0 }, :presence => true
+  validates :stability, :numericality => { :only_integer => true, :less_than => 11, :greater_than => 0 }, :presence => true
+  validates :support, :numericality => { :only_integer => true, :less_than => 11, :greater_than => 0 }, :presence => true
   validates :provider_id, :uniqueness => { :scope => :user_id }
   validates :review, :presence => true
 
