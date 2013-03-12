@@ -19,6 +19,7 @@ if Provider.count == 0
   de = Country.find_by_code('de')
   us = Country.find_by_code('us')
   gb = Country.find_by_code('gb')
+  au = Country.find_by_code('au')
 
   providers = Provider.create([
     { name: 'Vodafone D2', country: de },
@@ -33,6 +34,9 @@ if Provider.count == 0
     { name: 'O2', country: gb },
     { name: 'Everything Everywhere', country: gb },
     { name: 'Tesco Mobile', country: gb },
-    { name: 'Giffgaff', country: gb }
+    { name: 'Giffgaff', country: gb },
+    { name: 'Telstra', country: au },
+    { name: 'Iinet', country: au },
+    { name: 'Internode', country: au }
   ])
 end

@@ -4,8 +4,11 @@ class Provider < ActiveRecord::Base
   belongs_to :country
   has_many :ratings, :dependent => :destroy
 
-  validates :name, :presence => true
+  validates :name, :presence => true, :uniqueness => { :scope => :country_id }
   validates :country_id, :presence => true
+
+  extend FriendlyId
+  friendly_id :name, :use => :slugged
 
   def update_scores
     self.overall     = self.ratings.average(:overall)

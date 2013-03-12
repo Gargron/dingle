@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130311225334) do
+ActiveRecord::Schema.define(:version => 20130312132304) do
 
   create_table "countries", :force => true do |t|
     t.string   "name"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20130311225334) do
     t.float    "stability",   :default => 0.0
     t.float    "price_value", :default => 0.0
     t.float    "score",       :default => 0.0
+    t.string   "slug"
   end
 
   add_index "providers", ["score"], :name => "index_providers_on_score"

@@ -5,4 +5,7 @@ class Country < ActiveRecord::Base
 
   validates :name, :presence => true, :uniqueness => true
   validates :code, :presence => true, :uniqueness => true, :length => { :is => 2 }
+
+  extend FriendlyId
+  friendly_id :code
 end
