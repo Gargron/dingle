@@ -3,7 +3,9 @@
   <li class="active"><%= @country.name %></li>
 </ul>
 
-<h3 style="margin-bottom: 18px"><%= t('countries.isps_of', country: @country.name) %></h3>
+<h3><%= t('countries.isps_of', country: @country.name) %></h3>
+
+<p class="lead" style="margin-bottom: 18px"><%= t('countries.desc_html', country: @country.name) %></p>
 
 <table class="table table-bordered">
   <thead>

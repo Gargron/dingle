@@ -4,6 +4,7 @@ de:
   countries:
     title: 'Länder'
     isps_of: 'Internetanbieter von %{country}'
+    desc_html: 'Hier finden Sie Bewertungen und Rezensionen von <strong>Internetanbietern in %{country}</strong>. Hoffentlich helfen sie Ihnen, die Anbieter zu vergleichen und zu wählen!'
   providers:
     name: 'Internetanbieter'
     overall: 'Endwert'
