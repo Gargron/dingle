@@ -63,12 +63,45 @@ de:
     next_label: "Weiter &#8594;"
     page_gap: "&hellip;"
   activerecord:
+    models:
+      country: 'Land'
+      kudo: 'Zustimmung'
+      provider: 'Internetanbieter'
+      provider_suggestion: 'Internetanbietervorschlag'
+      rating: 'Bewertung'
+      review: 'Rezension'
+      user: 'Nutzer'
     attributes:
+      country:
+        name: 'Landesname'
+        code: 'ISO 3166-1 Landcode'
+      kudo:
+        user_id: 'Zustimmungsnutzer'
+      provider:
+        name: 'Name des Internetanbieters'
+        country_id: 'Land des Internetanbieters'
+      provider_suggestion:
+        name: 'Name des Internetanbieters'
+        country_id: 'Land des Internetanbieters'
+      rating:
+        price_value: 'Price to value rating'
+        support: 'Support rating'
+        stability: 'Stability rating'
+        privacy: 'Privacy rating'
+        provider_id: 'ISP'
       review:
         content: 'Rezensionstext'
-      rating:
-        price_value: 'Bewertung des Preisleistungsverhältnisses'
-        support: 'Bewertung der Kundenbetreuung'
-        stability: 'Bewertung der Störfestigkeit'
-        privacy: 'Bewertung des Datenschutzes'
-        provider_id: 'Internetanbieter'
+      user:
+        name: 'Angezeigter Name'
+        email: 'E-mail Adresse'
+        password: 'Kennwort'
+        role: 'Rolle'
+        ip: 'IP Addresse'
+    errors:
+      messages:
+        blank: 'darf nicht leer sein'
+        taken: 'ist schon vergeben'
+        wrong_length: 'hat falsche Länge (muss %{count} Zeichen lang sein)'
+        not_a_number: 'ist keine Zahl'
+        less_than: 'muss weniger als %{count} sein'
+        too_long: 'ist zu lang (muss maximal %{count} Zeichen lang sein)'

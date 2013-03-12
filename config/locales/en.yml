@@ -63,12 +63,45 @@ en:
     next_label: "Next &#8594;"
     page_gap: "&hellip;"
   activerecord:
+    models:
+      country: 'Country'
+      kudo: 'Kudos'
+      provider: 'Provider'
+      provider_suggestion: 'Provider suggestion'
+      rating: 'Rating'
+      review: 'Review'
+      user: 'User'
     attributes:
-      review:
-        content: 'Review body'
+      country:
+        name: 'Country name'
+        code: 'ISO 3166-1 country code'
+      kudo:
+        user_id: 'Kudos user'
+      provider:
+        name: 'ISP name'
+        country_id: 'ISP country'
+      provider_suggestion:
+        name: 'ISP name'
+        country_id: 'ISP country'
       rating:
         price_value: 'Price to value rating'
         support: 'Support rating'
         stability: 'Stability rating'
         privacy: 'Privacy rating'
         provider_id: 'ISP'
+      review:
+        content: 'Review body'
+      user:
+        name: 'Nickname'
+        email: 'E-mail address'
+        password: 'Password'
+        role: 'Role'
+        ip: 'IP address'
+    errors:
+      messages:
+        blank: "can't be blank"
+        taken: 'has already been taken'
+        wrong_length: 'is the wrong length (should be %{count} characters)'
+        not_a_number: 'is not a number'
+        less_than: 'must be less than %{count}'
+        too_long: 'is too long (maximum is %{count} characters)'

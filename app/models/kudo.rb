@@ -4,6 +4,8 @@ class Kudo < ActiveRecord::Base
   belongs_to :user
   belongs_to :rating
 
+  validates :user_id, :uniqueness => { :scope => :rating_id }
+
   after_create :update_rating_kudos
 
   private

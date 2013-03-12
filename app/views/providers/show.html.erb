@@ -120,17 +120,17 @@
   <%= form_for [@provider.country, @provider, @rating] do |f| %>
     <legend><%= t('ratings.submit_yours') %></legend>
 
-    <% @rating.errors.each do |attr, err| %>
+    <% @rating.errors.full_messages.each do |err| %>
       <div class="alert alert-error">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong><%= attr %></strong> <%= err %>
+        <%= err %>
       </div>
     <% end %>
 
-    <% current_user.errors.each do |attr, err| %>
+    <% current_user.errors.full_messages.each do |err| %>
       <div class="alert alert-error">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong><%= attr %></strong> <%= err %>
+        <%= err %>
       </div>
     <% end %>
 
