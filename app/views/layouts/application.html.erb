@@ -30,10 +30,11 @@
         <li>&copy; Dingle</li>
 
         <% if current_user.admin? %>
-          <li>
-            <%= link_to t('users.logout'), admin_logout_path %>
-          </li>
+          <li><%= link_to t('suggestions.title'), admin_suggestions_path %></li>
+          <li><%= link_to t('users.logout'), admin_logout_path %></li>
         <% end %>
+
+        <li><%= link_to 'en', lang: 'en' %> | <%= link_to 'de', lang: 'de' %></li>
       </ul>
     </div>
   </div>
