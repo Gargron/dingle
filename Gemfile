@@ -41,3 +41,4 @@ gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 gem 'best_in_place'
 gem "friendly_id", "~> 4.0.0.beta8"
+gem 'mixpanel'

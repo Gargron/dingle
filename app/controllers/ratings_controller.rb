@@ -12,6 +12,8 @@ class RatingsController < ApplicationController
       else
         render :template => 'providers/show' and return
       end
+
+      mixpanel.append_people_identify current_user.id
     else
       if params[:rating][:user][:name] != current_user.name
         current_user.name = params[:rating][:user][:name]
@@ -22,6 +24,7 @@ class RatingsController < ApplicationController
     @rating.user     = current_user
 
     if @rating.save
+      mixpanel.append_track 'Rating Created'
       redirect_to [@provider.country, @provider]
     else
       render :template => 'providers/show'

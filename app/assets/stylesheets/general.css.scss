@@ -1,0 +1,30 @@
+.site-title {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer:before,
+.footer:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.footer:after {
+  clear: both;
+}
+
+.footer > li {
+  float: right;
+  margin-left: 12px;
+}
+
+.footer > li:last-child {
+  margin-left: 0;
+}
+
+.footer .pull-left {
+  margin-left: 0;
+  margin-right: 12px;
+  float: left;
+}

@@ -64,4 +64,7 @@ Dingle::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  # Mixpanel
+  config.middleware.use "Mixpanel::Middleware", "848ac0603667c1e2dfbc89ba6d161271", :persist => true
 end

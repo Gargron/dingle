@@ -42,6 +42,7 @@ GEM
       execjs
     coffee-script-source (1.5.0)
     erubis (2.7.0)
+    escape (0.0.4)
     execjs (1.4.0)
       multi_json (~> 1.0)
     friendly_id (4.0.9)
@@ -58,6 +59,10 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.21)
+    mixpanel (3.5.2)
+      escape
+      json
+      rack
     multi_json (1.6.1)
     pg (0.14.1)
     polyglot (0.3.3)
@@ -124,6 +129,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   friendly_id (~> 4.0.0.beta8)
   jquery-rails
+  mixpanel
   pg
   rails (= 3.2.12)
   redcarpet
