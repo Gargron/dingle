@@ -7,7 +7,7 @@
 <div class="row">
   <div class="span6 offset3">
     <%= form_for [@suggestion.country, @suggestion] do |f| %>
-      <legend><%= t('suggestions.title') %></legend>
+      <legend><%= t('suggestions.title_for_country', country: @suggestion.country.name) %></legend>
 
       <div class="control-group">
         <%= f.label :name, t('suggestions.provider'), :class => 'control-label' %>

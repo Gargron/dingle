@@ -19,7 +19,7 @@
       <% @suggestions.each do |suggestion| %>
         <tr>
           <td><%= suggestion.country.name %></td>
-          <td><%= suggestion.name %></td>
+          <td><%= best_in_place suggestion, :name %></td>
           <td><%= link_to t('suggestions.accept'), admin_suggestion_accept_path(suggestion), :method => :post %></td>
         </tr>
       <% end %>

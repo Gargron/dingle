@@ -43,6 +43,7 @@ en:
     title: "%{name}'s review of %{provider}"
   suggestions:
     title: 'ISP suggestions'
+    title_for_country: 'Suggest ISP of %{country}'
     provider: 'ISP name'
     submit: 'Submit your suggestion'
     thanks: 'Thank you for your suggestion, it will be reviewed shortly'
@@ -104,4 +105,5 @@ en:
         wrong_length: 'is the wrong length (should be %{count} characters)'
         not_a_number: 'is not a number'
         less_than: 'must be less than %{count}'
+        greater_than: 'must be greater than %{count}'
         too_long: 'is too long (maximum is %{count} characters)'

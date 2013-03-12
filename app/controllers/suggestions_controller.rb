@@ -1,4 +1,6 @@
 class SuggestionsController < ApplicationController
+  respond_to :html, :json
+
   def new
     @suggestion = ProviderSuggestion.new(country: Country.find(params[:country_id]))
   end
@@ -15,5 +17,15 @@ class SuggestionsController < ApplicationController
     else
       redirect_to country
     end
+  end
+
+  def update
+    if not current_user.admin?
+      redirect_to root_path and return
+    end
+
+    @suggestion = ProviderSuggestion.find(params[:id])
+    @suggestion.update_attributes(params[:suggestion])
+    respond_with @suggestion
   end
 end

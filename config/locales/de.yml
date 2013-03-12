@@ -43,6 +43,7 @@ de:
     title: "%{name}s Bewertung von %{provider}"
   suggestions:
     title: 'Internetanbieter vorschlagen'
+    title_for_country: 'Internetanbieter für %{country} vorschlagen'
     provider: 'Name des Internetanbieters'
     submit: 'Vorschlag absenden'
     thanks: 'Vielen Dank für den Vorschlag! Wir überprüfen ihn in kurzer Zeit'
@@ -104,4 +105,5 @@ de:
         wrong_length: 'hat falsche Länge (muss %{count} Zeichen lang sein)'
         not_a_number: 'ist keine Zahl'
         less_than: 'muss weniger als %{count} sein'
+        greater_than: 'muss größer als %{count} sein'
         too_long: 'ist zu lang (muss maximal %{count} Zeichen lang sein)'
