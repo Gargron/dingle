@@ -8,7 +8,8 @@ making the most out of user-submitted information for fellow visitors.
 
 __The actual roadmap__:
 
-* Add pagination to various collections on the site: Ratings, suggestions, providers and countries
+* ~~Add pagination to various collections on the site: Ratings, suggestions, providers and countries~~
+* ~~Authors can edit their reviews shortly after publishing~~
 * Add area availability functionality: Users can claim that a provider is available in an area, we
   compute the statistical confidence of those claims not being bogus and display on a map to
   visitors.
