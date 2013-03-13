@@ -50,7 +50,11 @@
   <div class="row">
     <div class="span4">
       <div class="speech-bubble">
-        <%= markdown(@provider.ratings.best.first.review.content) %>
+        <%= markdown(truncate(@provider.ratings.best.first.review.content, :length => 140, :separator => ' ')) %>
+
+        <p>
+          <%= link_to t('ratings.more_html'), [@provider.country, @provider, @provider.ratings.best.first] %>
+        </p>
       </div>
 
       <p><%= t('ratings.best_html', name: @provider.ratings.best.first.user.name, num: @provider.ratings.best.first.kudos_num || 0) %></p>
@@ -92,7 +96,11 @@
 
     <div class="span4">
       <div class="speech-bubble">
-        <%= markdown(@provider.ratings.worst.first.review.content) %>
+        <%= markdown(truncate(@provider.ratings.worst.first.review.content, :length => 140, :separator => ' ')) %>
+
+        <p>
+          <%= link_to t('ratings.more_html'), [@provider.country, @provider, @provider.ratings.worst.first] %>
+        </p>
       </div>
 
       <p><%= t('ratings.worst_html', name: @provider.ratings.worst.first.user.name, num: @provider.ratings.worst.first.kudos_num || 0) %></p>
