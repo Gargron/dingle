@@ -5,6 +5,7 @@ de:
     title: 'Länder'
     isps_of: 'Internetanbieter von %{country}'
     desc_html: 'Hier finden Sie Bewertungen und Rezensionen von <strong>Internetanbietern in %{country}</strong>. Hoffentlich helfen sie Ihnen, die Anbieter zu vergleichen und zu wählen!'
+    ratings_num: '%{count} Bewertungen'
   providers:
     name: 'Internetanbieter'
     overall: 'Endwert'
@@ -12,7 +13,6 @@ de:
     stability: 'Störfestigkeit'
     support: 'Kundenbetreuung'
     price_value: 'Preisleistungsverhältnis'
-    num_of_ratings: 'Anzahl der Bewertungen'
     suggest: 'Schlage einen ISP vor'
     missing: 'Fehlt ein Internetanbieter?'
     country: 'Land'
@@ -29,7 +29,7 @@ de:
     done: 'Vielen Dank für deine Bewertung!'
     more_html: 'Weiterlesen &raquo;'
     kudos:
-      give: 'Zustimmen'
+      give: '<i class="icon-thumbs-up"></i> Zustimmen'
       given: 'Du stimmst der Bewertung zu!'
       count: '%{count} Zustimmungen'
     review: 'Rezension'

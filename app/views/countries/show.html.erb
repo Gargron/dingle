@@ -12,11 +12,7 @@
     <tr>
       <th><%= t('providers.name') %></th>
       <th><%= t('providers.overall') %></th>
-      <th><%= t('providers.privacy') %></th>
-      <th><%= t('providers.stability') %></th>
-      <th><%= t('providers.price_value') %></th>
-      <th><%= t('providers.support') %></th>
-      <th><%= t('providers.num_of_ratings') %></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -26,23 +22,19 @@
         <tr>
           <td><%= link_to provider.name, [@country, provider] %></td>
           <td><%= "%.1f" % (provider.overall || 0) %></td>
-          <td><%= "%.1f" % (provider.privacy || 0) %></td>
-          <td><%= "%.1f" % (provider.stability || 0) %></td>
-          <td><%= "%.1f" % (provider.price_value || 0) %></td>
-          <td><%= "%.1f" % (provider.support || 0) %></td>
-          <td><%= provider.ratings.count %></td>
+          <td><%= t('countries.ratings_num', count: provider.ratings.count) %></td>
         </tr>
       <% end %>
     <% else %>
       <tr>
-        <td colspan="7"><%= t('providers.none') %></td>
+        <td colspan="3"><%= t('providers.none') %></td>
       </tr>
     <% end %>
   </tbody>
 
   <tfoot>
     <tr>
-      <td colspan="7">
+      <td colspan="3">
         <%= t('providers.missing') %>
         <%= link_to t('providers.suggest'), new_country_provider_suggestion_path(@country) %>
       </td>

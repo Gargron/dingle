@@ -7,6 +7,8 @@ class Provider < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => { :scope => :country_id }
   validates :country_id, :presence => true
 
+  scope :best, order("score DESC, overall DESC")
+
   extend FriendlyId
   friendly_id :name, :use => :slugged
 
@@ -24,8 +26,8 @@ class Provider < ActiveRecord::Base
 
   def generate_sorting_score
     n    = self.ratings.count
-    pos  = self.ratings.where("overall > 6").count
-    conf = 0.95
+    pos  = self.ratings.where("overall > 5").count
+    conf = 0.90
 
     if n == 0
       return 0

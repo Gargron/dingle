@@ -5,6 +5,7 @@ en:
     title: 'Countries'
     isps_of: 'ISPs of %{country}'
     desc_html: 'Here you can find ratings and reviews for <strong>Internet Service Providers in %{country}</strong> which will hopefully help you choose and compare them.'
+    ratings_num: '%{count} ratings'
   providers:
     name: 'ISP'
     overall: 'Overall score'
@@ -12,7 +13,6 @@ en:
     stability: 'Stability score'
     support: 'Support score'
     price_value: 'Price to value score'
-    num_of_ratings: 'Number of ratings'
     suggest: 'Suggest an ISP'
     missing: 'Missing an ISP?'
     country: 'Country'
@@ -29,9 +29,9 @@ en:
     done: 'Thank you for submitting your rating!'
     more_html: 'Read the full review &raquo;'
     kudos:
-      give: 'Give kudos'
-      given: 'You appreciate this!'
-      count: '%{count} kudos'
+      give: '<i class="icon-thumbs-up"></i> Agree with this'
+      given: 'You agree with this!'
+      count: '%{count} people agree'
     review: 'Review'
     form:
       privacy: 'Privacy out of 10'
