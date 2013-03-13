@@ -1,3 +1,5 @@
+<%- title t('reviews.title', name: @rating.user.name, provider: @rating.provider.name) %>
+
 <ul class="breadcrumb">
   <li><%= link_to t('countries.title'), root_path %> <span class="divider">/</span></li>
   <li><%= link_to @rating.provider.country.name, country_path(@rating.provider.country) %> <span class="divider">/</span></li>

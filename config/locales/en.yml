@@ -17,6 +17,7 @@ en:
     missing: 'Missing an ISP?'
     country: 'Country'
     none: 'No providers yet'
+    ratings_for: 'Ratings and review of %{provider}, %{country}'
   ratings:
     best: 'Best review'
     best_html: 'That review by <strong>%{name}</strong> was most positive and appreciated by <strong>%{num} people</strong>.'

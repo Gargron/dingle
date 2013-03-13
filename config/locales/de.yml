@@ -17,6 +17,7 @@ de:
     missing: 'Fehlt ein Internetanbieter?'
     country: 'Land'
     none: 'Noch keine Internetanbieter'
+    ratings_for: 'Bewertungen von %{provider}, %{country}'
   ratings:
     best: 'Beste Bewertung'
     best_html: 'Diese Rezension von <strong>%{name}</strong> war die positivste mit <strong>%{num} Zustimmenden</strong>.'

@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dingle</title>
+  <meta charset="utf-8" />
+
+  <title><%= content_for?(:title) ? content_for(:title) : "Dingle" %></title>
+
+  <meta name="description" content="Dingle is a rating and reviews website for Internet Service Providers, to make comparing and choosing one for you simpler." />
+  <meta name="keywords" content="isp, internet service provider, comparison, reviews, ratings" />
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
